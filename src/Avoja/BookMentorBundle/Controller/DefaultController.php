@@ -30,7 +30,7 @@ class DefaultController extends Controller
         $request = $this->get('request');
         if ($request->query->get('suggestion')) {
             $suggestions = array(
-                'The Little Mermaid', 
+                'The Tao of Physics', 
                 'Pro PHP Refactoring',
                 'The Hitchhiker\'s Guide to the Galaxy'
             );
