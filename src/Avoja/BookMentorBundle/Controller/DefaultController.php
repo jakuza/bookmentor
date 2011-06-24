@@ -11,6 +11,7 @@
 
 namespace Avoja\BookMentorBundle\Controller;
 
+use Avoja\BookMentorBundle\Mentor;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -29,11 +30,9 @@ class DefaultController extends Controller
         
         $request = $this->get('request');
         if ($request->query->get('suggestion')) {
-            $suggestions = array(
-                'The Tao of Physics', 
-                'Pro PHP Refactoring',
-                'The Hitchhiker\'s Guide to the Galaxy'
-            );
+            
+            $mentor = new Mentor();
+            $suggestions = $mentor->suggestFor('jacoporomei');
         }
         
         return $this->render('AvojaBookMentorBundle:Default:index.html.twig', 
