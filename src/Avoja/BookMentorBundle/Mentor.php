@@ -19,6 +19,11 @@ EOF;
         'My Name is Red',
     );
     
+    public function __construct()
+    {
+        $this->tweets_json = json_decode($this->tweets_json);
+    }
+    
     public function getTweets(\stdClass $json)
     {
         $tweets = array();
@@ -49,7 +54,7 @@ EOF;
 
     public function suggestFor($username)
     {
-//        $this->extractKeyWords($this->getTweets($this->tweets_json));
+        $keywords = $this->extractKeyWords($this->getTweets($this->tweets_json));
         
         if ($username == 'jacoporomei') {
             return array(
