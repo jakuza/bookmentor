@@ -23,7 +23,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('AvojaBookMentorBundle:Default:index.html.twig');
+        $form = $this->createForm(new \Avoja\BookMentorBundle\Form\Suggestion());
+        
+        return $this->render('AvojaBookMentorBundle:Default:index.html.twig', array('form' => $form->createView()));
     }
 }
 

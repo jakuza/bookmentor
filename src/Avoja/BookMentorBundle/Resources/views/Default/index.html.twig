@@ -1,2 +1,6 @@
 <h1>BookMentor</h1>
 
+<form action="{{ path('_bookmentor') }}">
+    {{ form_row(form.username) }}
+    <input type="submit" value="Suggest" />
+</form>
