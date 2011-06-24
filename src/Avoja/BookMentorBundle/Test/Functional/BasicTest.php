@@ -10,7 +10,7 @@ class BasicTest extends WebTestCase
     {
         $client = $this->createClient();
         
-        $crawler = $client->getRequest('GET', 'bookmentor/suggest');
+        $crawler = $client->request('GET', '/bookmentor/suggest');
         
         $this->assertTrue($client->getResponse()->isSuccessful());
         $this->assertEquals(1, $crawler->filter('h1:contains("BookMentor")')->count());

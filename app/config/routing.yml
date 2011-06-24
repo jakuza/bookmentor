@@ -1,0 +1,4 @@
+_bookmentor:
+  resource: "@AvojaBookMentorBundle/Controller/DefaultController.php"
+  type:     annotation
+  prefix:   /bookmentor
