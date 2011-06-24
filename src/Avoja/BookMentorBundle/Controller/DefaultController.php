@@ -25,7 +25,19 @@ class DefaultController extends Controller
     {
         $form = $this->createForm(new \Avoja\BookMentorBundle\Form\Suggestion());
         
-        return $this->render('AvojaBookMentorBundle:Default:index.html.twig', array('form' => $form->createView()));
+        $suggestions = array();
+        
+        $request = $this->get('request');
+        if ($request->query->get('suggestion')) {
+            $suggestions = array(
+                'The Little Mermaid', 
+                'Pro PHP Refactoring',
+                'The Hitchhiker\'s Guide to the Galaxy'
+            );
+        }
+        
+        return $this->render('AvojaBookMentorBundle:Default:index.html.twig', 
+                array('form' => $form->createView(), 'suggestions' => $suggestions));
     }
 }
 
