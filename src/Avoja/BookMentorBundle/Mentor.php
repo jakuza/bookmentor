@@ -55,6 +55,17 @@ EOF;
     public function suggestFor($username)
     {
         $keywords = $this->extractKeyWords($this->getTweets($this->tweets_json));
+
+        $suggestions = array();
+        
+        foreach ($this->books as $book) {
+            foreach ($keywords as $keyword) {
+                if (strpos($book, $keyword) !== false) {
+                    $suggestions[] = $book;
+                    continue;
+                }
+            }
+        }
         
         if ($username == 'jacoporomei') {
             return array(
