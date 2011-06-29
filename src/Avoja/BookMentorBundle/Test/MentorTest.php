@@ -27,7 +27,7 @@ class MentorTest extends \PHPUnit_Framework_TestCase
         $mentor = new Mentor();
         $source = array(
             'Gino is on the table',
-            'Tomora loves gino',
+            'Tomora loves # gino',
             'Gianni beats Ortega',
             '@orione allenamento #tdd tutto il giorno',
         );

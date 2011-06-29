@@ -43,7 +43,7 @@ EOF;
         foreach ($phrases as $phrase) {
             $words = explode(' ', $phrase);
             foreach ($words as $word) {
-                if (!in_array($word, $blacklist) && false === strpos($word, '@')) {
+                if (!in_array($word, $blacklist) && false === strpos($word, '@') && strlen($word)) {
                     $keywords[$word] = trim($word, '#');
                 }
             }
