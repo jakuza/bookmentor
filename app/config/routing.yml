@@ -1,4 +1,7 @@
-# Internal routing configuration to handle ESI
-#_internal:
-#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
-#   prefix:   /_internal
+suggestion:
+    resource: "@AvojaBookMentorBundle/Controller"
+    type:     annotation
+
+#suggestion:
+#    pattern:  /suggestions
+#    defaults: { _controller: AvojaBookMentorBundle:Suggestion:index }
