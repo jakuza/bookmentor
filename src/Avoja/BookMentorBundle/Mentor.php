@@ -4,6 +4,13 @@ namespace Avoja\BookMentorBundle;
 
 class Mentor 
 {
+    private $twitter;
+    
+    public function __construct($twitter)
+    {
+        $this->twitter = $twitter;
+    }
+    
     private function match($books, $keywords)
     {
         $suggestions = array();
@@ -32,7 +39,7 @@ class Mentor
             'Cinderella',
         );
         
-        $twitter_keywords = array('refactoring', 'mountain', 'sail', 'cinderella', 'pingo');
+        $twitter_keywords = $this->twitter->getKeywords($username);
         
         return $this->match($books, $twitter_keywords);
     }

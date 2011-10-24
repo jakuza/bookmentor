@@ -5,6 +5,8 @@ namespace Avoja\BookMentorBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
+use Avoja\BookMentorBundle\Tests\Stub\TwitterStub;
+
 class SuggestionController extends Controller 
 {
     /**
@@ -12,7 +14,7 @@ class SuggestionController extends Controller
      */
     public function indexAction($username)
     {
-        $mentor = new \Avoja\BookMentorBundle\Mentor();
+        $mentor = new \Avoja\BookMentorBundle\Mentor(new TwitterStub());
         $suggestions = $mentor->suggestFor($username);
         
         return $this->render('AvojaBookMentorBundle:Suggestion:index.html.twig', array('suggestions' => $suggestions));

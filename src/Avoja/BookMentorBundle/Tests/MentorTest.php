@@ -1,6 +1,6 @@
 <?php
 
-namespace Avoja\BookMentorBundle\Test;
+namespace Avoja\BookMentorBundle\Tests;
 
 use Avoja\BookMentorBundle\Mentor;
 
@@ -8,7 +8,9 @@ class MentorTest extends \PHPUnit_Framework_TestCase
 {
     public function testMentorReturnsRightSuggestionsForJacoporomei()
     {
-        $mentor = new Mentor();
+        $twitter = new Stub\TwitterStub();
+        
+        $mentor = new Mentor($twitter);
         $suggestions = $mentor->suggestFor('jacoporomei');
         
         $this->assertEquals(3, count($suggestions));
