@@ -8,7 +8,10 @@ class MentorTest extends \PHPUnit_Framework_TestCase
 {
     public function testMentorReturnsRightSuggestionsForJacoporomei()
     {
-        $twitter = new Stub\TwitterStub();
+        $twitter = $this->getMock('Avoja\BookMentorBundle\Tests\Stub\TwitterStub');
+        $twitter->expects($this->once())
+            ->method('getKeywords')
+            ->will($this->returnValue(array('refactoring', 'mountain', 'sail', 'cinderella', 'pingo')));
         
         $mentor = new Mentor($twitter);
         $suggestions = $mentor->suggestFor('jacoporomei');
