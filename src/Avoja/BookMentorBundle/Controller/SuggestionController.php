@@ -8,12 +8,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class SuggestionController extends Controller 
 {
     /**
-     * 
+     * @Route("/suggestions/{username}")
      */
-    public function indexAction()
+    public function indexAction($username)
     {
+        $mentor = new \Avoja\BookMentorBundle\Mentor($this->get('twitter'));
         
-        return $this->render('AvojaBookMentorBundle:Suggestion:index.html.twig');
+        $suggestions = $mentor->getSuggestions($username);
+        
+        return $this->render('AvojaBookMentorBundle:Suggestion:index.html.twig',
+            array('suggestions' => $suggestions)
+        );
     }
     
 }

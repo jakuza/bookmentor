@@ -6,7 +6,11 @@
     <h1>BookMentor</h1>
     <h2>PUG Roma - 25 ottobre 2011</h2>
 
-    
+    <ul>
+        {% for suggestion in suggestions %}
+            <li class="suggestion">{{ suggestion }}</li>
+        {% endfor %}
+    </ul>
 
 </body>
 </html>
