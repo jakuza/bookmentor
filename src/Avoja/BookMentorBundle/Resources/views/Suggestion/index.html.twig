@@ -1,12 +1,19 @@
-<html>
-<head></head>
+{% extends 'AvojaBookMentorBundle::base.html.twig' %}
 
-<body>
+{% block body %}
+    {% for suggestion in suggestions %}
+        <li class="suggestion">{{ suggestion.title }}</li>
+    {% endfor %}
+{% endblock %}
 
-    <h1>BookMentor</h1>
-    <h2>PUG Roma - 25 ottobre 2011</h2>
+{% block sidebar_links  %}
 
-    
+    {{ parent() }}
 
-</body>
-</html>
+
+    <li><a href="http://www.webgriffe.com">Webgriffe</a></li>
+
+{% endblock %}
+
+
+
