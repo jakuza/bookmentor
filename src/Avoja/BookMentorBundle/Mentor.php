@@ -27,13 +27,8 @@ class Mentor
         
         $keywords = $this->twitter->getKeywordsFor($username);
         
-        $keywords = array(
-            'jacoporomei' => array('cenerentola', 'siddartha', 'php'),
-            'pincopallino' => array('galattica', 'sposi', 'refactoring'),
-        );
-        
         $suggestions = array();
-        foreach ($keywords[$username] as $keyword) {
+        foreach ($keywords as $keyword) {
             foreach ($books as $book) {
                 if (false !== strpos(strtolower($book), strtolower($keyword))) {
                     $suggestions[] = $book;

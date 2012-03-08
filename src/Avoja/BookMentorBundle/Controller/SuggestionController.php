@@ -12,7 +12,7 @@ class SuggestionController extends Controller
      */
     public function indexAction($username)
     {
-        $twitter = new \Avoja\BookMentorBundle\Twitter\TwitterStub();
+        $twitter = $this->get('twitter');
         $mentor = new \Avoja\BookMentorBundle\Mentor($twitter);
         $suggestions = $mentor->suggest($username);
         
