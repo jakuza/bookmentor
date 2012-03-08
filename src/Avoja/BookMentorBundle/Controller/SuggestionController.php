@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class SuggestionController extends Controller 
 {
     /**
-     * 
+     * @Route("/suggestions/{username}")
      */
     public function indexAction()
     {
