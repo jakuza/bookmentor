@@ -6,7 +6,14 @@ class MentorTest extends \PHPUnit_Framework_TestCase
 {
     public function testSuggestions()
     {
-        $mentor = new \Avoja\BookMentorBundle\Mentor();
+        $twitter = $this->getMock('\Avoja\BookMentorBundle\Twitter\TwitterInterface');
+        
+        $twitter->expects($this->any())
+            ->method('getKeywordsFor')
+            ->with('pincopallino')
+            ->will($this->returnValue(array('galattica', 'sposi', 'refactoring')));
+               
+        $mentor = new \Avoja\BookMentorBundle\Mentor($twitter);
         
         $suggestions = $mentor->suggest('pincopallino');
         

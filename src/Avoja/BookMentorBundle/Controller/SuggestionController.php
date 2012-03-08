@@ -12,7 +12,8 @@ class SuggestionController extends Controller
      */
     public function indexAction($username)
     {
-        $mentor = new \Avoja\BookMentorBundle\Mentor();
+        $twitter = new \Avoja\BookMentorBundle\Twitter\TwitterStub();
+        $mentor = new \Avoja\BookMentorBundle\Mentor($twitter);
         $suggestions = $mentor->suggest($username);
         
         return $this->render('AvojaBookMentorBundle:Suggestion:index.html.twig',
