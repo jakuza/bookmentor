@@ -10,10 +10,14 @@ class SuggestionController extends Controller
     /**
      * @Route("/suggestions/{username}")
      */
-    public function indexAction()
+    public function indexAction($username)
     {
+        $mentor = new \Avoja\BookMentorBundle\Mentor();
+        $suggestions = $mentor->suggest($username);
         
-        return $this->render('AvojaBookMentorBundle:Suggestion:index.html.twig');
+        return $this->render('AvojaBookMentorBundle:Suggestion:index.html.twig',
+            array('suggestions' => $suggestions)
+        );
     }
     
 }
