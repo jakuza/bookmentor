@@ -14,7 +14,7 @@ class BasicTest extends WebTestCase
         
         $this->assertTrue($client->getResponse()->isSuccessful(), 'Successful HTTP request.');
         
-        $this->assertEquals(3, $crawler->filter('.suggestion')->count(), 'Right amount of suggestions.');
+        $this->assertEquals(5, $crawler->filter('.suggestion')->count(), 'Right amount of suggestions.');
         $this->assertEquals(
             1, 
             $crawler->filter('.suggestion:contains("Pro PHP Refactoring")')->count(),
