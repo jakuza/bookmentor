@@ -1,6 +1,10 @@
 imports:
     - { resource: config.yml }
 
+services:
+    twitter:
+        class:  Avoja\BookMentorBundle\Twitter\Client
+
 #doctrine:
 #    orm:
 #        metadata_cache_driver: apc

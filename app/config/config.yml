@@ -2,6 +2,10 @@ imports:
     - { resource: parameters.ini }
     - { resource: security.yml }
 
+services:
+    twitter:
+        class:  Avoja\BookMentorBundle\Tests\Stub\Twitter
+
 framework:
     #esi:             ~
     #translator:      { fallback: %locale% }
